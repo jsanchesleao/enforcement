@@ -10,7 +10,7 @@ var integer = {
 	message: 'Attribute %attr% is not an integer number'
 }
 
-var Product = enforcement.Schema({
+var Product = Schema({
     sku: 'required string',
     name: 'required string',
     quantity: 'required number integer',
