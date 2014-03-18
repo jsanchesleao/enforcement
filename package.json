@@ -1,0 +1,17 @@
+{
+  "name": "enforcement",
+  "version": "0.0.1",
+  "description": "Declarative Object Validation",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "mocha": "~1.18.2"
+  },
+  "dependencies": {
+    "require-dir": "~0.1.0"
+  }
+}
