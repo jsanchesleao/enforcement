@@ -15,9 +15,9 @@ Quickstart
 ----------
 
 ```javascript
-    var enforcement = require('enforcement');
+    var validator = require('enforcement').create();
 
-    var Person = enforcement.Schema({
+    var Person = validator.Schema({
         name: 'string',
         age: 'number'
     });
@@ -40,7 +40,7 @@ The schema definition is a hash with the name of the fields as keys and the vali
 You can combine validations like the following:
 
 ```javascript
-    var mySchema = enforcement.Schema({
+    var mySchema = validator.Schema({
         aField: 'required string',
         another: ['required', 'number']
     });
@@ -68,10 +68,10 @@ You can use schemas as validations for fields inside other schemas too. Consider
 Here we want to validate a subdocument containing two fields, a string and a number. We can do this using a schema inside another, like this:
 
 ```javascript
-    var schema = enforcement.Schema({
+    var schema = validator.Schema({
         name: 'required string',
         age: 'positive integer',
-        address: enforcement.Schema({
+        address: validator.Schema({
             street: 'required string',
             number: 'required positive integer'
         })
@@ -83,7 +83,7 @@ Array Types
 A field can be defined as an array. You can, then, define validations to run through an array field. For example, to validate an array of string that cannot be empty, you can write the following schema:
 
 ```javascript
-    var schema = enforcement.Schema({
+    var schema = validator.Schema({
         tags: '[string notEmpty]' //write the definition between square brackets to define that tags field is an array
     })
 
@@ -107,4 +107,21 @@ Supported Validations
 
 Custom Validations
 ------------------
-TODO: write doc
+You can also create custom validations and register them into the validator:
+
+```javascript
+    var greaterThanTen = {
+        name: 'greaterThanTen',
+        test: function(value){
+            return value > 10;
+        }
+    }
+
+    validator.register( greaterThanTen );
+
+    validator.Schema({
+        foo: 'integer greaterThanTen'
+    })
+}
+```
+It is imperative that you call <code>register</code> before creating any schema that uses the custom validation.

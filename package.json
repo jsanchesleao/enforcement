@@ -1,6 +1,6 @@
 {
   "name": "enforcement",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Declarative Object Validation",
   "main": "index.js",
   "scripts": {
