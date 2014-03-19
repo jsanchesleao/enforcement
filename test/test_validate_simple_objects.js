@@ -1,5 +1,5 @@
 var assert = require('assert');
-var validator = require('../lib/validator');
+var validator = require('../lib/validator').create();
 
 describe("Validator", function(){
 	it('checks for simple types inside an object', function(){
@@ -30,25 +30,20 @@ describe("Validator", function(){
 			assert.fail('object should not validate');
 		}
 		catch(err){
-			assert.equal(err.message, 'attribute foo is not a string: [42]')
+			assert.equal(err.flaws[0], 'string');
+			assert.equal(err.field, 'foo');
 		}
 	});
 
 	it('throws error if an unknown validation is used', function(){
-		var invalidObj = {
-			foo: ''
-		};
-
-		var schema = validator.Schema({
-			foo: 'exotic'
-		})
-
 		try{
-			schema.check(invalidObj)
+			var schema = validator.Schema({
+				foo: 'exotic'
+			})
 			assert.fail('object should not validate');
 		}
 		catch(err){
-			assert.equal(err.message, 'validation [exotic] does not exist');
+			assert.equal(err.message, 'Constraint named [exotic] is not registered');
 		}
 	});
 
@@ -66,7 +61,7 @@ describe("Validator", function(){
 			assert.fail('object should not validate');
 		}
 		catch(err){
-			assert.equal(err.message, 'attribute foo is empty')
+			assert.equal(err.flaws[0], 'notEmpty');
 		}
 	});
 
@@ -109,7 +104,8 @@ describe("Validator", function(){
 			assert.fail('should not validate');
 		}
 		catch(err){
-			assert.equal(err.message, 'Error validating field [foo]: attribute bar is not a string: [12]');
+			assert.equal(err.flaws[0], 'string');
+			assert.equal(err.field, 'foo');
 		}
 
 	});
@@ -140,7 +136,8 @@ describe("Validator", function(){
 			assert.fail('should not validate');
 		}
 		catch(err){
-			assert.equal(err.message, 'Error validating field [foo]: attribute bar is not defined');
+			assert.equal(err.flaws[0], 'required');
+			assert.equal(err.field, 'foo');
 		}
 	});
 })
