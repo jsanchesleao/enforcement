@@ -4,8 +4,7 @@ validator.register({
 	name: 'integer',
 	test: function(value){
 		return value % 1 === 0;
-	},
-	message: 'Attribute %attr% is not an integer number'
+	}
 });
 
 var Product = validator.Schema({
@@ -21,7 +20,7 @@ var Product = validator.Schema({
 
 
 var prod = {
-	
+	sku: '123',
 	name: 'test',
 	quantity: 12,
 	tags: ['123', 'asd'],

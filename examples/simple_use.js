@@ -1,21 +1,13 @@
 var validator = require('../').create();
 
-var custom = validator.Schema({
-	bar: 'required string notEmpty'
-});
 var schema = validator.Schema({
-	foo: ['required', validator.arrayOf(custom), 'notEmpty']
-});
-
-var valid = {
-	foo: [
-		{ bar: 'not empty string'},
-		{ bar: 'another string'}
-	]
-}
+	foo: '[string notEmpty]'
+})
 
 try{
-	schema.check(valid);
+	schema.check({
+		foo: ['']
+	});
 }
 catch(err){
 	console.log(err);
