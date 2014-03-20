@@ -1,12 +1,12 @@
 var validator = require('../').create();
 
 var schema = validator.Schema({
-	foo: '[string notEmpty]'
+	foo: '[required string]'
 })
 
 try{
 	schema.check({
-		foo: ['']
+		foo: ['123']
 	});
 }
 catch(err){
