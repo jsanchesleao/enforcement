@@ -1,6 +1,6 @@
 {
   "name": "enforcement",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Declarative Object Validation",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,7 @@
     "mocha": "~1.18.2"
   },
   "dependencies": {
-    "require-dir": "~0.1.0"
+    "require-dir": "~0.1.0",
+    "either-fantasy": "0.0.2"
   }
 }

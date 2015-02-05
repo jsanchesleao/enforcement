@@ -26,8 +26,12 @@ var prod = {
 	tags: ['123', 'asd'],
 	properties: [{
 		key: 'test',
-		value: '123'
+		value: 123
 	}]
 };
 
-Product.check( prod );
+
+// Product.check( prod );
+
+console.log(Product.validate(prod));
+

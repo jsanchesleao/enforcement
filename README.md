@@ -27,7 +27,9 @@ Quickstart
         age: 22
     }
 
-    Person.check(myPersonObject);
+    Person.check(myPersonObject); // This returns undefined, but throws if validation fails;
+
+    Person.validate(myPersonObject); //This returns a fantasy-land compatible Either;
 ```
 
 Defining Schemas
