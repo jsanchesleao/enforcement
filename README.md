@@ -29,7 +29,7 @@ Quickstart
 
     Person.check(myPersonObject); // This returns undefined, but throws if validation fails;
 
-    Person.validate(myPersonObject); //This returns a fantasy-land compatible Either;
+    Person.validate(myPersonObject); //This returns a Folktale.js Either (http://docs.folktalejs.org/en/latest/api/data/either/Either.html);
 ```
 
 Defining Schemas

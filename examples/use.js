@@ -30,8 +30,5 @@ var prod = {
 	}]
 };
 
-
-// Product.check( prod );
-
 console.log(Product.validate(prod));
 
