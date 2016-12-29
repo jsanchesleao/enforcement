@@ -11,10 +11,9 @@
   "keywords": "validation validator object schema",
   "license": "BSD-2-Clause",
   "devDependencies": {
-    "mocha": "~1.18.2"
+    "mocha": "~3.2.0"
   },
   "dependencies": {
-    "data.either": "^1.2.0",
-    "require-dir": "~0.1.0"
+    "data.either": "^1.2.0"
   }
 }
