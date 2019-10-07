@@ -1,3 +1,3 @@
-var validator = require('./lib/validator');
+const validator = require('./lib/validator');
 
 module.exports = validator;
