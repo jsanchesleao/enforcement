@@ -11,7 +11,7 @@
   "keywords": ["validation", "validator", "object", "schema"],
   "license": "BSD-2-Clause",
   "devDependencies": {
-    "mocha": "^6.2.1"
+    "mocha": "^10.2.0"
   },
   "dependencies": {}
 }
